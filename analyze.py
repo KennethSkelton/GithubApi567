@@ -1,17 +1,11 @@
 import requests 
-import os
 
-from dotenv import load_dotenv
-load_dotenv()
-TOKEN = os.getenv('GITHUB_TOKEN')
-
-
-def getRepoCommitsFromUser(user, apiKey):
+def getRepoCommitsFromUser(user):
     
     outputList = []
     getReposUrl = f'https://api.github.com/users/{user}/repos'
-    headers = {'Authorization': f'token {apiKey}'}
-    repos = requests.get(getReposUrl,headers=headers)
+
+    repos = requests.get(getReposUrl)
     repos = repos.json()
    
 
@@ -21,11 +15,11 @@ def getRepoCommitsFromUser(user, apiKey):
 
 
         getCommitsUrl = f'https://api.github.com/repos/{user}/{repoName}/commits'
-        commits = requests.get(getCommitsUrl, headers=headers)
+        commits = requests.get(getCommitsUrl)
         for commit in commits:
             count = count+1
         
         outputList.append(f'Repo: {repoName} Number of commits: {count}')
     return outputList
 
-print(getRepoCommitsFromUser("KennethSkelton", TOKEN))
+print(getRepoCommitsFromUser("KennethSkelton"))
