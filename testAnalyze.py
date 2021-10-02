@@ -1,9 +1,3 @@
-import os
-
-from dotenv import load_dotenv
-load_dotenv()
-TOKEN = os.getenv('GITHUB_TOKEN')
-
 import unittest
 from analyze import getRepoCommitsFromUser
 
