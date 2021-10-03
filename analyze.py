@@ -13,7 +13,6 @@ def getRepoCommitsFromUser(user):
         count = 0
         repoName = repo['name']
 
-
         getCommitsUrl = f'https://api.github.com/repos/{user}/{repoName}/commits'
         commits = requests.get(getCommitsUrl)
         for commit in commits:
