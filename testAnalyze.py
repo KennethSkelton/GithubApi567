@@ -1,6 +1,7 @@
 import unittest
 import requests
-from analyze import getRepoCommitsFromUser
+
+from analyze import *
 
 
 class TestgetRepoCommitsFromUser(unittest.TestCase):
