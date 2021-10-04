@@ -3,7 +3,7 @@ import requests
 def getRepoCommitsFromUser(user):
     
     outputList = []
-    getReposUrl = f'https://api.github.com/users/{user}/repos'
+    getReposUrl = 'https://api.github.com/users/'+user+'/repos'
 
     repos = requests.get(getReposUrl)
     repos = repos.json()
@@ -13,7 +13,7 @@ def getRepoCommitsFromUser(user):
         count = 0
         repoName = repo['name']
 
-        getCommitsUrl = f'https://api.github.com/repos/{user}/{repoName}/commits'
+        getCommitsUrl = 'https://api.github.com/repos/'+user+'/'+repoName+'/commits'
         commits = requests.get(getCommitsUrl)
         for commit in commits:
             count = count+1
