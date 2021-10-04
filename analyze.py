@@ -18,7 +18,7 @@ def getRepoCommitsFromUser(user):
         for commit in commits:
             count = count+1
         
-        outputList.append('Repo:'+repoName+' Number of commits: '+count)
+        outputList.append('Repo:'+repoName+' Number of commits: '+str(count))
     return outputList
 
 print(getRepoCommitsFromUser("KennethSkelton"))
